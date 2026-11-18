@@ -19,12 +19,43 @@ button,input,select{font:inherit}button{color:inherit;cursor:pointer}button:focu
 .week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:9px;align-items:end;height:165px;margin-top:18px}.week-day{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:end;gap:8px;font-size:11px;color:var(--muted)}.week-percent{font-size:10px}.week-track{width:100%;height:110px;background:var(--bg);border-radius:7px;display:flex;align-items:end;overflow:hidden}.week-fill{width:100%;background:var(--green);border-radius:7px;min-height:0}.history-row{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid var(--line)}.history-row:last-child{border:0}.history-date{font-weight:650}.history-detail{font-size:11px;color:var(--muted)}.history-score{font-weight:750;color:var(--green)}
 .view[hidden]{display:none}.empty{text-align:center;color:var(--muted);padding:35px 12px;font-size:13px}.bottom{display:flex;justify-content:space-between;align-items:center;margin-top:24px;color:var(--muted);font-size:10px;letter-spacing:.12em}.text-btn{background:none;border:0;color:var(--muted);text-decoration:underline;font-size:11px;letter-spacing:0}.toast{font-size:12px;color:var(--green);min-height:18px;margin-top:8px}
 @media(max-width:720px){.shell{padding:24px 16px 45px}.stats{grid-template-columns:repeat(2,1fr)}.layout{grid-template-columns:1fr}.hero{align-items:start;flex-direction:column}.hero-note{white-space:normal}.progress-card{padding:15px}.week-grid{gap:5px}.top{margin-bottom:27px}}
+
+/* Reference-inspired warm dashboard theme */
+:root{color-scheme:light;--bg:#f1eee7;--panel:#fffdfa;--panel2:#e9e3d7;--line:#e9e3d9;--text:#25272c;--muted:#85837d;--green:#f2ca35;--green-dark:#3a3b3e;--red:#ed786e;--radius:25px}
+body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.shell{max-width:1440px;padding:28px 34px 48px}
+.top{margin-bottom:30px}.brand{letter-spacing:-.04em;font-size:23px}.brand b{color:#e7bd24}.eyebrow{color:#8b877f;letter-spacing:.13em}
+.date strong{color:var(--text)}
+.hero{margin-bottom:24px;align-items:center}.hero h1{font-size:clamp(30px,4vw,43px);letter-spacing:-.045em}.hero p{color:#85837d}.hero-note{background:#fffdfa;border-radius:30px;padding:10px 16px;color:#5e5b54}
+.stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:15px}
+.card{background:var(--panel);border:0;border-radius:25px;padding:21px;box-shadow:0 5px 20px rgba(54,46,31,.035)}
+.stat-label{color:#85837d;letter-spacing:.1em}.stat-number{font-size:30px;color:#25272c}.stat-number small{color:#85837d}
+.progress-card{background:#d9d0c0;box-shadow:none;padding:23px 25px}.progress-track{background:rgba(255,255,255,.48);height:10px}.progress-fill{background:#f2ca35}.progress-side strong{color:#25272c}
+.tabs{background:#25282e;border:0;border-radius:30px;padding:5px;margin-bottom:18px}
+.tab{color:#c9c7c1;border-radius:24px;padding:9px 18px}.tab.active{background:#f2ca35;color:#24262b}
+.layout{grid-template-columns:minmax(0,1.5fr) minmax(290px,.85fr);gap:18px}
+.section-head h2,.add-card h2,.side-card h2{font-size:17px}
+.habit-list{padding:8px 22px}.habit{padding:16px 0;border-color:#eee9e1;gap:14px}
+.check{border:1px solid #c8c2b6;border-radius:50%;width:27px;height:27px}.check.done{background:#f2ca35;border-color:#f2ca35}
+.habit-name{font-weight:700}.habit-meta{color:#89857d}
+.icon-btn{color:#99948b}.icon-btn:hover{background:#f2eee6;color:#24272c}
+.add-card{background:#25282e;color:#f8f6f0}.add-card h2{color:#fff}.add-card .field label{color:#c1beb6}
+.field input,.field select{background:#33363d;border:1px solid #454850;color:#fff;border-radius:13px}
+.primary{background:#f2ca35;color:#24272c;border-radius:14px;padding:13px}
+.week-grid{height:180px}.week-track{background:#e9e5dc;border-radius:12px}.week-fill{background:#f2ca35;border-radius:12px}
+.history-row{border-color:#eee9e1}.history-score{color:#9c7b00}
+.empty{color:#89857d}
+.bottom{color:#89857d}
+.text-btn{color:#89857d}
+button:focus-visible,input:focus-visible,select:focus-visible{outline-color:#c69f13}
+@media(max-width:720px){.shell{padding:22px 15px 38px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:1fr}.hero{gap:12px}.progress-card{padding:17px}.habit-list{padding:5px 15px}.card{border-radius:21px}}
+
 </style>
 </head>
 <body>
 <main class="shell">
 <header class="top"><div><div class="eyebrow">YOUR PERSONAL SPACE</div><div class="brand">DAILY<b>.</b></div></div><div class="date"><strong id="today-label"></strong><span>One day at a time.</span></div></header>
-<section class="hero"><div><div class="eyebrow">THE EVERYDAY PRACTICE</div><h1>Build better days.</h1><p>Small actions. Real momentum.</p></div><div class="hero-note">Consistency over intensity ↗</div></section>
+<section class="hero"><div><div class="eyebrow">YOUR DAILY OVERVIEW</div><h1>Hi there! 👋</h1><p>Let’s take a look at your progress today.</p></div><div class="hero-note">A little progress adds up ✦</div></section>
 <section class="stats" aria-label="Habit statistics">
 <div class="card"><div class="stat-label">COMPLETED TODAY</div><div class="stat-number" id="stat-done">0<small> / 0</small></div></div>
 <div class="card"><div class="stat-label">DAILY SCORE</div><div class="stat-number" id="stat-score">0%</div></div>
