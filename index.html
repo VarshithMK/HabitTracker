@@ -2,74 +2,149 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101310"><meta name="description" content="A calm, personal habit tracker. Build better days, one habit at a time.">
+<meta name="theme-color" content="#f6f1e5"><meta name="description" content="A bright, personal habit tracker. Build better days, one habit at a time.">
 <title>DAILY — Habit Tracker</title>
 <style>
-:root{color-scheme:dark;--bg:#101310;--panel:#171c18;--panel2:#1d241f;--line:#2b352d;--text:#edf2ed;--muted:#89958c;--green:#91c7a2;--green-dark:#243e2d;--red:#db8c83;--radius:18px}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-button,input,select{font:inherit}button{color:inherit;cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--green);outline-offset:3px}
-.shell{max-width:1120px;margin:auto;padding:34px 26px 60px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:35px}.brand{font-size:21px;font-weight:850;letter-spacing:.17em}.brand b{color:var(--green)}.eyebrow{font-size:10px;letter-spacing:.2em;color:var(--muted);font-weight:750}.date{text-align:right;color:var(--muted);font-size:13px}.date strong{display:block;color:var(--text);font-size:14px}
-.hero{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}.hero h1{font-size:clamp(30px,5vw,48px);letter-spacing:-.055em;line-height:1.08;margin:8px 0}.hero p{margin:0;color:var(--muted)}.hero-note{color:var(--green);font-size:13px;white-space:nowrap}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px}.stat-label{font-size:10px;color:var(--muted);letter-spacing:.14em;font-weight:750}.stat-number{font-size:29px;font-weight:750;letter-spacing:-.04em;margin-top:7px}.stat-number small{font-size:13px;color:var(--muted);font-weight:500}
-.progress-card{display:flex;gap:20px;align-items:center;justify-content:space-between;margin-bottom:24px}.progress-title{font-weight:700}.progress-sub{font-size:12px;color:var(--muted);margin-top:3px}.progress-track{height:8px;background:var(--line);border-radius:20px;overflow:hidden;margin-top:13px}.progress-fill{height:100%;width:0;background:var(--green);border-radius:20px;transition:width .25s}.progress-side{text-align:right;min-width:72px}.progress-side strong{font-size:24px;color:var(--green)}
-.tabs{display:flex;gap:5px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:5px;width:max-content;margin-bottom:17px}.tab{background:transparent;border:0;padding:8px 14px;border-radius:8px;color:var(--muted);font-size:13px}.tab.active{background:var(--panel2);color:var(--text);font-weight:700}
-.layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.8fr);gap:15px;align-items:start}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.section-head h2{font-size:16px;margin:0}.muted{color:var(--muted)}.count{font-size:12px;color:var(--muted)}
-.habit-list{padding:3px 18px}.habit{display:flex;align-items:center;gap:13px;padding:14px 0;border-bottom:1px solid var(--line)}.habit:last-child{border-bottom:0}.check{width:25px;height:25px;flex:none;border:1px solid #647168;border-radius:8px;background:transparent;display:grid;place-items:center;color:#142218}.check.done{background:var(--green);border-color:var(--green)}.check svg{width:15px;height:15px}.habit-info{flex:1;min-width:0}.habit-name{font-weight:650;overflow-wrap:anywhere}.habit-name.completed{text-decoration:line-through;color:var(--muted)}.habit-meta{font-size:11px;color:var(--muted);margin-top:2px}.habit-actions{display:flex;gap:5px}.icon-btn{border:0;background:transparent;color:var(--muted);padding:6px;border-radius:7px}.icon-btn:hover{background:var(--panel2);color:var(--text)}.icon-btn svg{width:17px;height:17px;display:block}
-.add-card h2,.side-card h2{font-size:15px;margin:0 0 14px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:11px}.field label{font-size:11px;color:var(--muted);font-weight:650}.field input,.field select{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:10px;color:var(--text);padding:11px 12px;min-width:0}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.primary{width:100%;background:var(--green);color:#112016;font-weight:800;border:0;border-radius:10px;padding:11px 14px}.primary:hover{filter:brightness(1.06)}.error{font-size:12px;color:var(--red);min-height:17px;margin-top:5px}
-.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:9px;align-items:end;height:165px;margin-top:18px}.week-day{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:end;gap:8px;font-size:11px;color:var(--muted)}.week-percent{font-size:10px}.week-track{width:100%;height:110px;background:var(--bg);border-radius:7px;display:flex;align-items:end;overflow:hidden}.week-fill{width:100%;background:var(--green);border-radius:7px;min-height:0}.history-row{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid var(--line)}.history-row:last-child{border:0}.history-date{font-weight:650}.history-detail{font-size:11px;color:var(--muted)}.history-score{font-weight:750;color:var(--green)}
-.view[hidden]{display:none}.empty{text-align:center;color:var(--muted);padding:35px 12px;font-size:13px}.bottom{display:flex;justify-content:space-between;align-items:center;margin-top:24px;color:var(--muted);font-size:10px;letter-spacing:.12em}.text-btn{background:none;border:0;color:var(--muted);text-decoration:underline;font-size:11px;letter-spacing:0}.toast{font-size:12px;color:var(--green);min-height:18px;margin-top:8px}
-@media(max-width:720px){.shell{padding:24px 16px 45px}.stats{grid-template-columns:repeat(2,1fr)}.layout{grid-template-columns:1fr}.hero{align-items:start;flex-direction:column}.hero-note{white-space:normal}.progress-card{padding:15px}.week-grid{gap:5px}.top{margin-bottom:27px}}
-
-/* Reference-inspired warm dashboard theme */
-:root{color-scheme:light;--bg:#f1eee7;--panel:#fffdfa;--panel2:#e9e3d7;--line:#e9e3d9;--text:#25272c;--muted:#85837d;--green:#f2ca35;--green-dark:#3a3b3e;--red:#ed786e;--radius:25px}
-body{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.shell{max-width:1440px;padding:28px 34px 48px}
-.top{margin-bottom:30px}.brand{letter-spacing:-.04em;font-size:23px}.brand b{color:#e7bd24}.eyebrow{color:#8b877f;letter-spacing:.13em}
-.date strong{color:var(--text)}
-.hero{margin-bottom:24px;align-items:center}.hero h1{font-size:clamp(30px,4vw,43px);letter-spacing:-.045em}.hero p{color:#85837d}.hero-note{background:#fffdfa;border-radius:30px;padding:10px 16px;color:#5e5b54}
-.stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:15px}
-.card{background:var(--panel);border:0;border-radius:25px;padding:21px;box-shadow:0 5px 20px rgba(54,46,31,.035)}
-.stat-label{color:#85837d;letter-spacing:.1em}.stat-number{font-size:30px;color:#25272c}.stat-number small{color:#85837d}
-.progress-card{background:#d9d0c0;box-shadow:none;padding:23px 25px}.progress-track{background:rgba(255,255,255,.48);height:10px}.progress-fill{background:#f2ca35}.progress-side strong{color:#25272c}
-.tabs{background:#25282e;border:0;border-radius:30px;padding:5px;margin-bottom:18px}
-.tab{color:#c9c7c1;border-radius:24px;padding:9px 18px}.tab.active{background:#f2ca35;color:#24262b}
-.layout{grid-template-columns:minmax(0,1.5fr) minmax(290px,.85fr);gap:18px}
-.section-head h2,.add-card h2,.side-card h2{font-size:17px}
-.habit-list{padding:8px 22px}.habit{padding:16px 0;border-color:#eee9e1;gap:14px}
-.check{border:1px solid #c8c2b6;border-radius:50%;width:27px;height:27px}.check.done{background:#f2ca35;border-color:#f2ca35}
-.habit-name{font-weight:700}.habit-meta{color:#89857d}
-.icon-btn{color:#99948b}.icon-btn:hover{background:#f2eee6;color:#24272c}
-.add-card{background:#25282e;color:#f8f6f0}.add-card h2{color:#fff}.add-card .field label{color:#c1beb6}
-.field input,.field select{background:#33363d;border:1px solid #454850;color:#fff;border-radius:13px}
-.primary{background:#f2ca35;color:#24272c;border-radius:14px;padding:13px}
-.week-grid{height:180px}.week-track{background:#e9e5dc;border-radius:12px}.week-fill{background:#f2ca35;border-radius:12px}
-.history-row{border-color:#eee9e1}.history-score{color:#9c7b00}
-.empty{color:#89857d}
-.bottom{color:#89857d}
-.text-btn{color:#89857d}
-button:focus-visible,input:focus-visible,select:focus-visible{outline-color:#c69f13}
-@media(max-width:720px){.shell{padding:22px 15px 38px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:1fr}.hero{gap:12px}.progress-card{padding:17px}.habit-list{padding:5px 15px}.card{border-radius:21px}}
-
+:root{color-scheme:light;--canvas:#f6f1e5;--surface:#fffdf6;--ink:#171717;--muted:#858176;--line:#e9e3d5;--black:#151515;--pink:#f2b2d4;--blue:#b7cbed;--yellow:#f5d957;--lilac:#d9d0ed;--radius:20px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--ink);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select{font:inherit}button{cursor:pointer;color:inherit}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #b59b31;outline-offset:3px}
+.app-shell{width:min(1600px,calc(100% - 36px));min-height:calc(100vh - 36px);margin:18px auto;border:2px solid #66645f;border-radius:23px;overflow:hidden;display:grid;grid-template-columns:205px minmax(0,1fr);background:var(--canvas);box-shadow:0 12px 40px rgba(45,38,20,.06)}
+.sidebar{background:var(--black);color:#f7f4ed;padding:28px 17px 20px;display:flex;flex-direction:column;min-height:850px}
+.brand{font-size:24px;font-weight:850;letter-spacing:-1.2px;padding:2px 13px 42px}.brand span{color:var(--yellow)}
+.side-label{color:#77766f;font-size:9px;letter-spacing:.19em;font-weight:800;padding:0 13px;margin:0 0 12px}
+.nav-group{display:grid;gap:5px;margin-bottom:30px}
+.nav-link{display:flex;align-items:center;gap:12px;width:100%;padding:11px 12px;border:0;border-radius:9px;background:transparent;color:#d5d1c9;text-align:left;font-size:12px;transition:.15s}
+.nav-link svg{width:16px;height:16px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nav-link:hover{background:#262626;color:#fff}.nav-link.active{background:#2c2b28;color:#fff;box-shadow:inset 3px 0 #f1b4d4}
+.sidebar-bottom{margin-top:auto;padding:18px 12px 0;border-top:1px solid #34332f;color:#8d8a81;font-size:10px;line-height:1.6}
+.sidebar-bottom strong{display:block;color:#f3eee5;font-size:12px;margin-bottom:4px}
+.main-area{padding:24px 30px 28px;min-width:0}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:30px}
+.search-pill{height:40px;display:flex;align-items:center;gap:10px;background:#fffdf7;border:1px solid #d8d1c4;border-radius:24px;padding:0 15px;width:min(440px,58%);color:#77736c}
+.search-pill span{font-size:19px;line-height:1}.search-pill input{border:0;outline:0!important;background:transparent;width:100%;min-width:0;color:var(--ink);font-size:11px}
+.top-actions{display:flex;align-items:center;gap:10px;color:#77736c;font-size:11px}
+.round-action{width:34px;height:34px;border:0;border-radius:50%;background:#171717;color:#fff;display:grid;place-items:center;font-size:15px}
+.today-date{font-weight:700;color:#282722;margin-left:5px;white-space:nowrap}
+.page-heading{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:22px}
+.eyebrow{font-size:9px;font-weight:800;letter-spacing:.18em;color:#8b8679;margin-bottom:8px}
+h1{font-size:clamp(27px,3vw,38px);line-height:1.08;letter-spacing:-1.7px;margin:0 0 7px;font-weight:780}
+.page-heading p{margin:0;color:#898477;font-size:12px}
+.heading-tag{background:#171717;color:#fff;border-radius:20px;padding:8px 14px;font-size:9px;letter-spacing:.09em;font-weight:750;white-space:nowrap}
+.overview-grid{display:grid;grid-template-columns:minmax(280px,.92fr) minmax(390px,1.5fr);gap:14px;margin-bottom:22px}
+.card{background:var(--surface);border-radius:var(--radius);padding:19px;box-shadow:0 4px 16px rgba(55,45,25,.035);min-width:0}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.section-head h2,.card h2{font-size:15px;letter-spacing:-.25px;margin:0;font-weight:750}
+.count,.muted{color:var(--muted);font-size:10px}
+.ring-panel{padding:20px 23px;background:#eae3d4}
+.ring-row{display:flex;align-items:center;gap:20px;min-height:185px}
+.progress-ring{--progress:0%;width:164px;height:164px;border-radius:50%;flex:none;background:conic-gradient(var(--pink) 0 25%,var(--blue) 25% 50%,var(--yellow) 50% var(--progress),#d7d0c3 var(--progress) 100%);display:grid;place-items:center;position:relative;transform:rotate(-90deg)}
+.progress-ring:before{content:"";position:absolute;inset:13px;border-radius:50%;background:#eae3d4}
+.progress-ring>div{position:relative;z-index:1;transform:rotate(90deg);text-align:center}
+.progress-ring strong{display:block;font-size:34px;letter-spacing:-1.7px;line-height:1.1}
+.progress-ring small{font-size:9px;color:#817d73}
+.ring-copy{min-width:0}.ring-copy strong{display:block;font-size:14px;margin-bottom:6px}.ring-copy p{font-size:11px;color:#777267;margin:0;line-height:1.55}
+.ring-legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;font-size:9px;color:#777267}
+.legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+.metrics-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.metric-card{border-radius:18px;padding:17px 18px;display:flex;flex-direction:column;justify-content:center;min-height:112px}
+.metric-card.pink{background:var(--pink)}.metric-card.blue{background:var(--blue)}.metric-card.yellow{background:var(--yellow)}.metric-card.lilac{background:var(--lilac)}
+.metric-label{font-size:9px;font-weight:800;letter-spacing:.11em;color:#4a4643}
+.metric-number{font-size:27px;font-weight:780;letter-spacing:-1px;line-height:1.25;margin:5px 0 2px}
+.metric-number small{font-size:12px;letter-spacing:0;font-weight:650}
+.metric-foot{font-size:9px;color:#5e5a54}
+.view-tabs{display:flex;align-items:center;gap:6px;border-bottom:1px solid #e4ddcf;margin:0 0 18px;padding-bottom:10px}
+.tab{border:0;background:transparent;color:#777267;border-radius:18px;padding:8px 15px;font-size:11px}
+.tab:hover{background:#eae4d8}.tab.active{background:#171717;color:#fff;font-weight:700}
+.view[hidden]{display:none}
+.content-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(255px,.85fr);gap:14px;align-items:start}
+.habit-card{padding:18px 19px}
+.habit-list{padding:0}
+.habit{display:flex;align-items:center;gap:12px;padding:13px 10px;border-bottom:1px solid #eee9df;min-height:63px}
+.habit:last-child{border-bottom:0}
+.check{width:24px;height:24px;flex:none;border:1.5px solid #b9b3a7;border-radius:50%;background:transparent;display:grid;place-items:center;color:#222}
+.check.done{background:#171717;border-color:#171717;color:#fff}
+.check svg{width:14px;height:14px}
+.habit-info{flex:1;min-width:0}.habit-name{font-weight:700;font-size:12px;overflow-wrap:anywhere}.habit-name.completed{text-decoration:line-through;color:#8b867d}
+.habit-meta{font-size:9px;color:#938e82;margin-top:3px}
+.habit-actions{display:flex;gap:2px}.icon-btn{border:0;background:transparent;color:#878276;padding:6px;border-radius:6px}.icon-btn:hover{background:#f0ece3;color:#222}.icon-btn svg{width:15px;height:15px;display:block}
+.right-column{display:grid;gap:13px}
+.add-card{background:#171717;color:#fff;padding:19px}
+.add-card h2{font-size:15px;margin:0 0 15px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:11px}
+.field label{font-size:9px;color:#aaa69d;font-weight:750;letter-spacing:.09em}
+.field input,.field select{width:100%;border:1px solid #45433f;background:#272624;border-radius:9px;color:#fff;padding:10px 11px;min-width:0;font-size:11px}
+.primary{width:100%;background:var(--yellow);color:#171717;font-weight:800;border:0;border-radius:10px;padding:11px 14px;font-size:11px}.primary:hover{filter:brightness(1.04)}
+.error{font-size:10px;color:#f1a9be;min-height:15px;margin-top:5px}
+.note-card{background:#f2b4d3;padding:17px 19px}.note-card h3{margin:0 0 5px;font-size:13px}.note-card p{margin:0;color:#5f4a55;font-size:10px;line-height:1.55}
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:end;height:190px;margin-top:18px}
+.week-day{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:end;gap:8px;font-size:10px;color:#858074}
+.week-percent{font-size:9px}.week-track{width:100%;height:125px;background:#f0ece3;border-radius:7px;display:flex;align-items:end;overflow:hidden}
+.week-fill{width:100%;background:var(--blue);border-radius:7px;min-height:0}.history-row{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid #eee9df}.history-row:last-child{border:0}
+.history-date{font-weight:700;font-size:12px}.history-detail{font-size:10px;color:#928d81}.history-score{font-weight:800;color:#82702a;font-size:12px}
+.empty{text-align:center;color:#8c8679;padding:30px 12px;font-size:11px}
+.bottom{display:flex;justify-content:space-between;align-items:center;margin-top:20px;color:#999284;font-size:9px;letter-spacing:.12em}
+.text-btn{background:none;border:0;color:#827d72;text-decoration:underline;font-size:10px}
+.toast{font-size:10px;color:#82702a;min-height:15px;margin-top:6px}
+@media(max-width:1050px){.main-area{padding:22px}.app-shell{grid-template-columns:180px minmax(0,1fr)}.overview-grid{grid-template-columns:1fr}.ring-row{min-height:165px}.metrics-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.metric-card{min-height:100px;padding:13px}.metric-number{font-size:23px}.content-grid{grid-template-columns:minmax(0,1.3fr) minmax(230px,.8fr)}}
+@media(max-width:760px){.app-shell{width:100%;min-height:100vh;margin:0;border:0;border-radius:0;grid-template-columns:1fr;overflow:visible}.sidebar{min-height:0;padding:15px 16px;display:block}.brand{padding:0 4px 13px;font-size:21px}.sidebar .side-label,.sidebar-bottom{display:none}.nav-group{display:flex;gap:5px;margin:0;overflow:auto}.nav-link{white-space:nowrap;width:auto;padding:9px 11px;font-size:10px}.nav-link svg{width:14px;height:14px}.main-area{padding:19px 15px 28px}.topbar{margin-bottom:23px}.search-pill{width:55%}.top-actions{gap:6px}.round-action{width:29px;height:29px}.today-date{font-size:10px}.page-heading{align-items:start}.heading-tag{font-size:8px;padding:7px 9px}.overview-grid{grid-template-columns:1fr}.ring-row{justify-content:center;gap:18px}.progress-ring{width:140px;height:140px}.progress-ring strong{font-size:29px}.metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content-grid{grid-template-columns:1fr}.view-tabs{overflow:auto}.tab{white-space:nowrap;padding:8px 13px}.card{border-radius:17px}.week-grid{gap:6px}.week-track{height:105px}}
+@media(max-width:390px){.ring-row{gap:12px}.progress-ring{width:122px;height:122px}.ring-copy p{font-size:10px}.metric-number{font-size:22px}}
 </style>
 </head>
 <body>
-<main class="shell">
-<header class="top"><div><div class="eyebrow">YOUR PERSONAL SPACE</div><div class="brand">DAILY<b>.</b></div></div><div class="date"><strong id="today-label"></strong><span>One day at a time.</span></div></header>
-<section class="hero"><div><div class="eyebrow">YOUR DAILY OVERVIEW</div><h1>Hi there! 👋</h1><p>Let’s take a look at your progress today.</p></div><div class="hero-note">A little progress adds up ✦</div></section>
-<section class="stats" aria-label="Habit statistics">
-<div class="card"><div class="stat-label">COMPLETED TODAY</div><div class="stat-number" id="stat-done">0<small> / 0</small></div></div>
-<div class="card"><div class="stat-label">DAILY SCORE</div><div class="stat-number" id="stat-score">0%</div></div>
-<div class="card"><div class="stat-label">CURRENT STREAK</div><div class="stat-number" id="stat-streak">0 <small>days</small> 🔥</div></div>
-<div class="card"><div class="stat-label">BEST STREAK</div><div class="stat-number" id="stat-best">0 <small>days</small></div></div>
-</section>
-<section class="card progress-card"><div style="flex:1;min-width:0"><div class="progress-title">Today's progress</div><div class="progress-sub" id="motivation">Start small. Show up every day.</div><div class="progress-track"><div class="progress-fill" id="progress-bar"></div></div></div><div class="progress-side"><strong id="progress-label">0%</strong><div class="muted" style="font-size:11px">complete</div></div></section>
-<nav class="tabs" aria-label="Dashboard views"><button class="tab active" data-tab="today">Today</button><button class="tab" data-tab="week">This week</button><button class="tab" data-tab="history">History</button></nav>
-<section class="view" id="view-today"><div class="layout"><div><div class="section-head"><h2>Your habits</h2><span class="count" id="habit-count">0 habits</span></div><div class="card" style="padding:0"><div class="habit-list" id="habit-list"></div><div class="empty" id="empty-habits" hidden>No habits yet. Add your first one →</div></div></div>
-<aside class="card add-card"><h2>＋ Create a habit</h2><form id="habit-form"><div class="field"><label for="habit-name">HABIT NAME</label><input id="habit-name" maxlength="50" placeholder="e.g. Read 10 pages" required></div><div class="field"><label for="habit-category">CATEGORY</label><select id="habit-category"><option>Fitness</option><option>Health</option><option>Learning</option><option>Personal</option><option>Work</option><option>Mindfulness</option></select></div><button class="primary" type="submit">Add habit +</button><div class="error" id="form-error" aria-live="polite"></div></form></aside></div></section>
-<section class="view" id="view-week" hidden><div class="card"><div class="section-head"><h2>Weekly consistency</h2><span class="count">Last 7 days</span></div><div class="week-grid" id="week-chart"></div><div style="display:flex;justify-content:space-between;margin-top:17px;font-size:12px"><span class="muted">Average daily completion</span><strong id="week-average">0%</strong></div></div><div class="card" style="margin-top:13px"><h2 style="font-size:15px;margin:0 0 10px">Weekly summary</h2><div class="history-row"><span class="muted">Habits completed</span><strong id="week-total">0</strong></div><div class="history-row"><span class="muted">Perfect days</span><strong id="week-perfect">0</strong></div></div></section>
-<section class="view" id="view-history" hidden><div class="card"><div class="section-head"><h2>Your history</h2><span class="count">Recent activity</span></div><div id="history-list"></div></div></section>
-<footer class="bottom"><span>DAILY · MAKE IT A PRACTICE</span><button class="text-btn" id="reset-data" type="button">Reset all data</button></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="app-shell">
+<aside class="sidebar">
+  <div class="brand">DAILY<span>.</span></div>
+  <div class="side-label">GENERAL</div>
+  <div class="nav-group">
+    <button class="nav-link active" data-tab="today"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</button>
+  </div>
+  <div class="side-label">YOUR TRACKER</div>
+  <div class="nav-group">
+    <button class="nav-link" data-tab="today"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/><path d="m7 5 1 0m-1 7 1 0m-1 7 1 0"/></svg>My habits</button>
+    <button class="nav-link" data-tab="week"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h17"/><rect x="7" y="11" width="3" height="6" rx="1"/><rect x="13" y="7" width="3" height="10" rx="1"/><rect x="19" y="3" width="2" height="14" rx="1"/></svg>Weekly report</button>
+    <button class="nav-link" data-tab="history"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5m4-1v5l3 2"/></svg>History</button>
+  </div>
+  <div class="sidebar-bottom"><strong>Small steps. Big change.</strong>Your progress is yours. Keep showing up.</div>
+</aside>
+<main class="main-area">
+  <header class="topbar">
+    <label class="search-pill"><span>⌕</span><input id="habit-search" type="search" placeholder="Search your habits..."></label>
+    <div class="top-actions"><button class="round-action" type="button" aria-label="Today">◷</button><button class="round-action" type="button" aria-label="Daily overview">✦</button><span class="today-date" id="today-label"></span></div>
+  </header>
+  <section class="page-heading"><div><div class="eyebrow">YOUR PERSONAL DASHBOARD</div><h1>Your habits & progress</h1><p>A little consistency goes a long way. Let's make today count.</p></div><div class="heading-tag">DAILY CHECK-IN&nbsp; • &nbsp;01</div></section>
+  <section class="overview-grid">
+    <div class="card ring-panel">
+      <div class="section-head"><h2>Today's activity</h2><span class="count">DAILY SUMMARY</span></div>
+      <div class="ring-row">
+        <div class="progress-ring" id="progress-ring" style="--progress:0%"><div><strong id="ring-label">0%</strong><small>completed</small></div></div>
+        <div class="ring-copy"><strong id="motivation">Start with one small win.</strong><p>Every habit you complete is a step toward the person you're building.</p></div>
+      </div>
+      <div class="ring-legend"><span><i class="legend-dot" style="background:var(--pink)"></i>Done</span><span><i class="legend-dot" style="background:var(--blue)"></i>In progress</span><span><i class="legend-dot" style="background:var(--yellow)"></i>To do</span></div>
+      <div hidden><span id="progress-label">0%</span><div id="progress-bar"></div></div>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-card pink"><span class="metric-label">COMPLETED TODAY</span><strong class="metric-number" id="stat-done">0<small> / 0</small></strong><span class="metric-foot">Habits checked off</span></div>
+      <div class="metric-card blue"><span class="metric-label">DAILY SCORE</span><strong class="metric-number" id="stat-score">0%</strong><span class="metric-foot">Your daily consistency</span></div>
+      <div class="metric-card yellow"><span class="metric-label">CURRENT STREAK</span><strong class="metric-number" id="stat-streak">0 <small>days</small> 🔥</strong><span class="metric-foot">Keep the chain going</span></div>
+      <div class="metric-card lilac"><span class="metric-label">PERSONAL BEST</span><strong class="metric-number" id="stat-best">0 <small>days</small></strong><span class="metric-foot">Your longest streak</span></div>
+    </div>
+  </section>
+  <nav class="view-tabs" aria-label="Dashboard views"><button class="tab active" data-tab="today">Today</button><button class="tab" data-tab="week">This week</button><button class="tab" data-tab="history">History</button></nav>
+  <section class="view" id="view-today">
+    <div class="content-grid">
+      <div><div class="section-head"><h2>My habits</h2><span class="count" id="habit-count">0 habits</span></div><div class="card habit-card"><div class="habit-list" id="habit-list"></div><div class="empty" id="empty-habits" hidden>No habits yet. Add your first one →</div></div></div>
+      <aside class="right-column">
+        <div class="card add-card"><h2>＋ Add a new habit</h2><form id="habit-form"><div class="field"><label for="habit-name">HABIT NAME</label><input id="habit-name" maxlength="50" placeholder="e.g. Read 10 pages" required></div><div class="field"><label for="habit-category">CATEGORY</label><select id="habit-category"><option>Fitness</option><option>Health</option><option>Learning</option><option>Personal</option><option>Work</option><option>Mindfulness</option></select></div><button class="primary" type="submit">Add habit +</button><div class="error" id="form-error" aria-live="polite"></div></form></div>
+        <div class="card note-card"><h3>One day at a time ✦</h3><p>Don't aim for perfect. Aim to show up, put in the work, and repeat tomorrow.</p></div>
+      </aside>
+    </div>
+  </section>
+  <section class="view" id="view-week" hidden><div class="card"><div class="section-head"><h2>Weekly consistency</h2><span class="count">LAST 7 DAYS</span></div><div class="week-grid" id="week-chart"></div><div style="display:flex;justify-content:space-between;margin-top:17px;font-size:11px"><span class="muted">Average daily completion</span><strong id="week-average">0%</strong></div></div><div class="card" style="margin-top:13px"><h2 style="font-size:14px;margin:0 0 10px">Weekly summary</h2><div class="history-row"><span class="muted">Habits completed</span><strong id="week-total">0</strong></div><div class="history-row"><span class="muted">Perfect days</span><strong id="week-perfect">0</strong></div></div></section>
+  <section class="view" id="view-history" hidden><div class="card"><div class="section-head"><h2>Your history</h2><span class="count">RECENT ACTIVITY</span></div><div id="history-list"></div></div></section>
+  <footer class="bottom"><span>DAILY · MAKE IT A PRACTICE</span><button class="text-btn" id="reset-data" type="button">Reset all data</button></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
 </main>
+</div>
 <script>
 (()=>{
 const KEY='daily_habit_tracker_v1';
@@ -92,7 +167,7 @@ const icon=(name)=>name==='edit'?'<svg viewBox="0 0 24 24" fill="none" stroke="c
 function renderToday(){
 const n=completed(today()),p=score(today());
 $('stat-done').innerHTML=n+'<small> / '+data.habits.length+'</small>';$('stat-score').textContent=p+'%';$('stat-streak').innerHTML=streak()+' <small>days</small> 🔥';$('stat-best').innerHTML=bestStreak()+' <small>days</small>';
-$('progress-label').textContent=p+'%';$('progress-bar').style.width=p+'%';$('motivation').textContent=p===100&&data.habits.length?'All done. You showed up for yourself today.':p>=50?'You are building momentum. Keep going.':'Every small action counts. Start with one.';
+$('progress-label').textContent=p+'%';$('progress-bar').style.width=p+'%';$('ring-label').textContent=p+'%';$('progress-ring').style.setProperty('--progress',p+'%');$('motivation').textContent=p===100&&data.habits.length?'All done. You showed up for yourself today.':p>=50?'You are building momentum. Keep going.':'Every small action counts. Start with one.';
 $('habit-count').textContent=data.habits.length+' habits';$('empty-habits').hidden=data.habits.length>0;$('habit-list').replaceChildren();
 data.habits.forEach(h=>{
 const row=document.createElement('div');row.className='habit';
@@ -101,7 +176,7 @@ check.addEventListener('click',()=>{const l=dayLog(today());if(l[h.id])delete l[
 const info=document.createElement('div');info.className='habit-info';const name=document.createElement('div');name.className='habit-name'+(isDone(today(),h.id)?' completed':'');name.textContent=h.name;const meta=document.createElement('div');meta.className='habit-meta';meta.textContent=h.category;info.append(name,meta);
 const actions=document.createElement('div');actions.className='habit-actions';
 [['edit','Edit habit'],['delete','Delete habit']].forEach(([type,label])=>{const b=document.createElement('button');b.type='button';b.className='icon-btn';b.title=label;b.setAttribute('aria-label',label+': '+h.name);b.innerHTML=icon(type);b.addEventListener('click',()=>type==='edit'?editHabit(h):deleteHabit(h));actions.append(b)});
-row.append(check,info,actions);$('habit-list').append(row)
+row.append(check,info,actions);const query=($('habit-search')?.value||'').trim().toLowerCase();if(query&&!h.name.toLowerCase().includes(query)&&!h.category.toLowerCase().includes(query))row.hidden=true;$('habit-list').append(row)
 });
 }
 function editHabit(h){const next=prompt('Edit habit name:',h.name);if(next===null)return;const name=next.trim();if(!name)return alert('Habit name cannot be empty.');if(data.habits.some(x=>x.id!==h.id&&x.name.toLowerCase()===name.toLowerCase()))return alert('That habit already exists.');h.name=name;save();render()}
@@ -117,11 +192,12 @@ if(!entries.length){const empty=document.createElement('div');empty.className='e
 entries.forEach(d=>{const row=document.createElement('div');row.className='history-row';const left=document.createElement('div');const date=document.createElement('div');date.className='history-date';date.textContent=dateLabel(d);const detail=document.createElement('div');detail.className='history-detail';detail.textContent=completed(d)+' of '+data.habits.length+' habits completed';left.append(date,detail);const right=document.createElement('div');right.className='history-score';right.textContent=score(d)+'%';row.append(left,right);target.append(row)})
 }
 function render(){renderToday();renderWeek();renderHistory()}
-$('today-label').textContent=new Date().toLocaleDateString(undefined,{weekday:'long',month:'short',day:'numeric'});
+$('today-label').textContent=new Date().toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'});$('habit-search').addEventListener('input',renderToday);
 $('habit-form').addEventListener('submit',e=>{e.preventDefault();const name=$('habit-name').value.trim();$('form-error').textContent='';if(!name)return;if(data.habits.some(h=>h.name.toLowerCase()===name.toLowerCase())){$('form-error').textContent='That habit already exists.';return}data.habits.push({id:'h'+Date.now()+'_'+Math.random().toString(36).slice(2,7),name,category:$('habit-category').value,created:today()});$('habit-name').value='';save();render();$('habit-name').focus()});
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));['today','week','history'].forEach(t=>{$('view-'+t).hidden=t!==b.dataset.tab})}));
 $('reset-data').addEventListener('click',()=>{if(confirm('Permanently erase all habits and history stored in this browser?')){data={habits:[],logs:{}};save();render()}});
 render();
 })();
 </script>
+</body></html>
 </body></html>
